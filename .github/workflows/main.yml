@@ -1,0 +1,41 @@
+name: Java Code Lint and Format
+
+on:
+  push:
+    branches:
+      - main  # Adjust the branch as needed
+
+jobs:
+  linting:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Install build tools
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y default-jdk
+
+    - name: Install Checkstyle
+      run: |
+        wget https://github.com/checkstyle/checkstyle/releases/download/checkstyle-8.45/checkstyle-8.45-all.jar -O checkstyle.jar
+      
+    - name: Lint Java code
+      run: |
+        find . -name "*.java" -exec java -jar checkstyle.jar -c sun_checks.xml {} +        
+    - name: Commit changes (if any)
+      run: |
+        git diff --exit-code || (git config --global user.email "github-actions@github.com" && git config --global user.name "GitHub Actions" && git commit -am "Auto-format code" && git push)
+  
+  formatting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3 # v2 minimum required
+      - uses: axel-op/googlejavaformat-action@v3
+        with:
+          args: "--skip-sorting-imports --replace"
+          # Recommended if you use MacOS:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
