@@ -12,3 +12,8 @@ The questions are organized by the problem type and stored in the corresponding 
    - [x] Merge Sorted Array
    - [x] Remove Element
    - [x] Remove Duplicates from Sorted Array
+   - [ ] Remove Duplicates from Sorted Array II
+   - [ ] Majority Element
+   - [ ] Rotate Array
+   - [ ] Best Time to Buy and Sell Stock
+   - [ ] 
