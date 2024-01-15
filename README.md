@@ -8,11 +8,3 @@ I want to go over the easy questions first, then mediums and hards. Once I reach
 
 ## Organization 
 The questions are organized by the problem type and stored in the corresponding repositories.
-1. Array/String
-   - [x] Merge Sorted Array
-   - [x] Remove Element
-   - [x] Remove Duplicates from Sorted Array
-   - [ ] Remove Duplicates from Sorted Array II
-   - [x] Majority Element
-   - [ ] Rotate Array
-   - [ ] Best Time to Buy and Sell Stock
